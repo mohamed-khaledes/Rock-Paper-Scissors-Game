@@ -1,0 +1,454 @@
+// Variables
+$Radial-Gradient-background: hsl(214, 47%, 23%);
+$Radial-Gradient-background2: hsl(237, 49%, 15%);
+$Scissors-Gradient: hsl(39, 89%, 49%);
+$Scissors-Gradient2: hsl(40, 84%, 53%);
+$Paper-Gradient: hsl(230, 89%, 62%);
+$Paper-Gradient2: hsl(230, 89%, 65%);
+$Rock-Gradient: hsl(349, 71%, 52%);
+$Rock-Gradient2: hsl(349, 70%, 56%);
+$Lizard-Gradient: hsl(261, 73%, 60%);
+$Lizard-Gradient2: hsl(261, 72%, 63%);
+$Cyan: hsl(189, 59%, 53%);
+$Cyan2: hsl(189, 58%, 57%);
+$bg-game: #f9f8f8;
+// Nutural
+$Dark-Text: hsl(229, 25%, 31%);
+$Score-Text: hsl(229, 64%, 46%);
+$Header-Outline: hsl(217, 16%, 45%);
+// End variables
+// import mixins
+@use "../css/mixins.scss" as *;
+
+// start body
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Barlow", sans-serif;
+  position: relative;
+  background-image: linear-gradient(
+    100deg,
+    $Radial-Gradient-background,
+    $Radial-Gradient-background2
+  );
+}
+.display {
+  display: block !important;
+}
+.displayO{
+    opacity: 1 !important;
+}
+.hide {
+  display: none !important;
+}
+.picked-animation{
+    animation:pickedAnimation 2s linear 1s forwards;
+}
+@keyframes pickedAnimation {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+  }
+.container {
+  height: 100vh;
+  margin: auto;
+  padding: 100px;
+  @include media(large) {
+    width: 960px;
+    position: relative;
+  }
+  @include media(mediam) {
+    width: 720px;
+  }
+  @include media(small) {
+    width: 540px;
+  }
+  @include media(mobile){
+    padding: 60px;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid $Header-Outline;
+    border-radius: 20px;
+    color: white;
+    padding: 20px 50px;
+    width: 600px;
+    margin: auto;
+    @include media(small){
+        width: 460px;
+      }
+    @include media(mobile){
+        padding: 20px 25px;
+    width: 200px;
+      }
+
+    .names {
+      p {
+        padding: 0;
+        margin: -10px;
+        text-transform: uppercase;
+        font-size: 35px;
+        @include media(mobile){
+            margin: 0;
+            font-size: 20px;
+          }
+      }
+    }
+    .score {
+      background: white;
+      width: 20%;
+      border-radius: 10px;
+      font-size: 25px;
+      text-transform: uppercase;
+      padding: 10px;
+      text-align: center;
+      @include media(mobile){
+        width: 35%;
+      }
+      p {
+        padding: 0;
+        margin: 0;
+      }
+      p:nth-of-type(1) {
+        color: $Score-Text;
+      }
+      p:nth-of-type(2) {
+        color: $Dark-Text;
+        font-weight: bold;
+        font-size: 50px;
+        @include media(mobile){
+        font-size: 35px;
+        }
+      }
+    }
+  }
+  .content-game {
+    background-image: url(/images/bg-triangle.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 150px auto;
+    height: 45vh;
+    position: relative;
+    width: 600px;
+    @include media(mobile){
+        width: 200px;
+    }
+    .img-game {
+      position: absolute;
+      background-color: $bg-game;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      @include media(mobile){
+        width: 80px;
+        height:80px;
+      }
+      @include media(small){
+        width: 150px;
+        height:150px;
+      }
+      img {
+        width: 80px;
+        @include media(mobile){
+            width: 50px;
+        }
+      }
+    }
+    .paper {
+      left: 0;
+      top: -80px;
+      border: 25px solid $Paper-Gradient2;
+      box-shadow: -2px 5px 0 0 $Paper-Gradient,
+        inset -1px 8px 0 0 hsl(217deg 16% 45% / 32%);
+        @include media(mobile){
+            left: -90px;
+            top: 20px;
+        }
+    }
+    .rock {
+      top: -80px;
+      right: 0;
+      border: 25px solid $Rock-Gradient2;
+      box-shadow: -2px 5px 0 0 $Rock-Gradient,
+        inset -1px 8px 0 0 hsl(217deg 16% 45% / 32%);
+        @include media(mobile){
+            top: 20px;
+            right: -90px;
+        }
+    }
+    .scissors {
+      bottom: -60px;
+      left: 50%;
+      transform: translate(-50%);
+      border: 25px solid $Scissors-Gradient2;
+      box-shadow: -2px 5px 0 0 $Scissors-Gradient,
+        inset -1px 8px 0 0 hsl(217deg 16% 45% / 32%);
+        @include media(mobile){
+            bottom: 45px;
+            left: 50%;
+        }
+    }
+  }
+  .content-game2 {
+    margin: 150px auto;
+    height: 45vh;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap:40px;
+    opacity:0;
+    @include media(mobile){
+        gap: 0px;
+        margin: 100px auto;
+        height: auto;
+    }
+    .img-game2 {
+      position: absolute;
+      background-color: $bg-game;
+      width:200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      @include media(mobile){
+        width: 80px;
+        height: 80px;
+    }
+      img {
+        width: 80px;
+        @include media(mobile){
+            width: 50px;
+        }
+      }
+    }
+    .left-box {
+      flex-basis:40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .head-parent{
+        position:absolute;
+        top:-50px;
+        @include media(mobile){
+            bottom: -35px;
+            top: auto;
+        }
+        h3 {
+            font-size:25px;
+            color: white;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            @include media(mobile){
+                font-size:17px;
+                width: 150px;
+                text-align: center;
+                letter-spacing:0px;
+                margin: 0;
+            }
+          }
+      }
+      .paper {
+        border: 40px solid $Paper-Gradient2;
+        box-shadow: -2px 5px 0 0 $Paper-Gradient,
+          inset -1px 8px 0 0 hsl(217deg 16% 45% / 32%);
+          @include media(mobile){
+            border:20px solid $Paper-Gradient2;
+        }
+      }
+    }
+    .center-box{
+        flex-basis: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    position:relative;
+    @include media(mobile){
+        top:200px;
+    }
+    @include media(small){
+        top:200px;
+        flex-basis: 50%;
+    }
+    lottie-player{
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%);
+        @include media(mobile){
+            height: 195px !important;
+        }
+    }
+        h2{
+            font-size: 40px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            @include media(mobile){
+                font-size:40px;
+            }
+        }
+        button{
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color:$Radial-Gradient-background2;
+            font-weight: 700;
+            padding: 10px;
+            border-radius: 5px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            &:active{
+                top:3px;
+            }
+            @include media(mobile){
+                font-size: 13px;
+                width: 190px;
+            }
+        }
+    }
+    .right-box {
+      flex-basis:40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .head-parent{
+        position:absolute;
+        top:-50px;
+        @include media(mobile){
+            bottom: -35px;
+            top: auto;
+        }
+        h3 {
+            font-size:25px;
+            color: white;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            @include media(mobile){
+                font-size:17px;
+                width: 150px;
+                text-align: center;
+                letter-spacing:0px;
+                margin: 0;
+            }
+          }
+      }
+      .bg-circle{
+        background:$Radial-Gradient-background2;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: absolute;
+    @include media(small){
+        width: 200px;
+        height:200px;
+      }
+    @include media(mobile){
+        width: 100px;
+        height:100px;
+      }
+      }
+      .house-picked{
+        opacity: 0;
+        z-index: 100;
+      }
+      .rock {
+        border:40px solid $Rock-Gradient2;
+        box-shadow: -2px 5px 0 0 $Rock-Gradient,
+          inset -1px 8px 0 0 hsl(217deg 16% 45% / 32%);
+          @include media(mobile){
+            border:20px solid $Rock-Gradient2;
+        }
+      }
+      .scissors {
+        bottom: -60px;
+        left: 50%;
+        transform: translate(-50%);
+        border: 25px solid $Scissors-Gradient2;
+        box-shadow: -2px 5px 0 0 $Scissors-Gradient,
+          inset -1px 8px 0 0 hsl(217deg 16% 45% / 32%);
+      }
+    }
+    
+  }
+  .rules {
+    position: fixed;
+    right: 70px;
+    bottom: 50px;
+    @include media(mobile){
+        right: 20px;
+    bottom: 17px;
+    }
+    button {
+      background: none;
+      color: white;
+      font-size: 20px;
+      border: 2px solid $Header-Outline;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      &:active {
+        top: 3px;
+      }
+    }
+  }
+  .rules-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $bg-game;
+    border-radius: 10px;
+    padding: 10px 50px 50px;
+    z-index: 100;
+    display: none;
+    @include media(mobile){
+            padding: 10px 20px 20px;
+    }
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 50px;
+      img {
+        cursor: pointer;
+        position: relative;
+        &:active {
+          top: 3px;
+        }
+      }
+    }
+  }
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
