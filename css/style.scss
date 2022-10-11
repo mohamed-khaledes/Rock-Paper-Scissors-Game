@@ -132,7 +132,7 @@ body {
     }
   }
   .content-game {
-    background-image: url(/images/bg-triangle.svg);
+    background-image: url(../images/bg-triangle.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -141,7 +141,7 @@ body {
     position: relative;
     width: 600px;
     @include media(mobile){
-        width: 200px;
+        width:160px;
     }
     .img-game {
       position: absolute;

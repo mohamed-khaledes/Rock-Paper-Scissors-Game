@@ -145,7 +145,7 @@ body {
   }
 }
 .container .content-game {
-  background-image: url(/images/bg-triangle.svg);
+  background-image: url(../images/bg-triangle.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -156,7 +156,7 @@ body {
 }
 @media (max-width: 767px) {
   .container .content-game {
-    width: 200px;
+    width: 160px;
   }
 }
 .container .content-game .img-game {
