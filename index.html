@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!--link of css-->
+    <link rel="stylesheet" href="css/style.css" />
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <!--start container-->
+    <div class="container">
+      <header>
+        <div class="names">
+          <p>Rock</p>
+          <p>Paper</p>
+          <p>Scissors</p>
+        </div>
+        <div class="score">
+          <p>score</p>
+          <p class="score-value">0</p>
+        </div>
+      </header>
+      <section class="content-game">
+        <div class="paper img-game">
+          <img src="images/icon-paper.svg" alt="" />
+        </div>
+        <div class="rock img-game">
+          <img src="images/icon-rock.svg" alt="" />
+        </div>
+        <div class="scissors img-game">
+          <img src="images/icon-scissors.svg" alt="" />
+        </div>
+      </section>
+      <section class="content-game2">
+        <div class="left-box">
+          <div class="head-parent">
+            <h3>YOU PICKED</h3>
+          </div>
+          <div class="paper img-game2 you-picked">
+            <img src="images/icon-paper.svg" alt="" />
+          </div>
+        </div>
+        <div class="center-box">
+          <lottie-player
+            src='https://assets3.lottiefiles.com/packages/lf20_obhph3sh.json'
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 255px"
+            loop
+            autoplay
+          ></lottie-player>
+          <h2 class="loseORwin">You Lose</h2>
+          <button class="play-again">Play Again</button>
+        </div>
+        <div class="right-box">
+          <div class="head-parent">
+            <h3>THE HOUS PICKED</h3>
+          </div>
+          <div class="bg-circle"></div>
+          <div class="rock img-game2 house-picked">
+            <img src="images/icon-paper.svg" alt="" />
+          </div>
+        </div>
+      </section>
+      <div class="rules">
+        <button>RULES</button>
+      </div>
+      <div class="rules-content">
+        <div class="head">
+          <h2>RULES</h2>
+          <img class="close" src="images/icon-close.svg" alt="" />
+        </div>
+        <img src="images/image-rules.svg" alt="" />
+      </div>
+    </div>
+    <div class="overlay"></div>
+    <!--End container-->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
