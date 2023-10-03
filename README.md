@@ -12,4 +12,4 @@
 - SASS
 - JS
 
-#### Live: https://mohamed-khaled11.github.io/Rock-Paper-Scissors-Game/
+#### Live: https://mohamed-khaledes.github.io/Rock-Paper-Scissors-Game/
